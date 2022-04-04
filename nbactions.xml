@@ -19,4 +19,13 @@
                 <goal>payaramicro:start</goal>
             </goals>
         </action>
+        <action>
+            <actionName>CUSTOM-clean install payara-micro:bundle</actionName>
+            <displayName>clean install payara-micro:bundle</displayName>
+            <goals>
+                <goal>clean</goal>
+                <goal>install</goal>
+                <goal>payara-micro:bundle</goal>
+            </goals>
+        </action>
     </actions>
