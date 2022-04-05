@@ -128,13 +128,41 @@
 
     </error-page>-->
     <listener>
-
         <listener-class>
-
             com.avbravo.templatefaces.security.SecuritySessionListener
-
         </listener-class>
-
     </listener>
+    
+<!--
+       WebSocket
+    -->
+    <context-param>
+        <param-name>javax.faces.ENABLE_CDI_RESOLVER_CHAIN</param-name>
+        <param-value>true</param-value>
+    </context-param>    
+    <!--    <context-param>
+        <param-name>javax.faces.ENABLE_WEBSOCKET_ENDPOINT</param-name>
+        <param-value>true</param-value>
+    </context-param>-->
+    <context-param>
+        <param-name>org.omnifaces.SOCKET_ENDPOINT_ENABLED</param-name>
+        <param-value>true</param-value>
+    </context-param>
+        
+    <!--        
+            <mime-mapping>  
+        <extension>woff2</extension>  
+        <mime-type>application/x-font-woff2</mime-type>  
+    </mime-mapping>-->
 
+<!--
+Indica a JSF que los valores vavios sean tratados como null para usar beanvalidation
+-->
+
+    <context-param>  
+        <param-name>  
+            javax.faces.INTERPRET_EMPTY_STRING_SUBMITTED_VALUES_AS_NULL  
+        </param-name>  
+        <param-value>true</param-value>  
+    </context-param>  
 </web-app>
