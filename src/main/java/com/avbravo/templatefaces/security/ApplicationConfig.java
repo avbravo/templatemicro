@@ -15,18 +15,13 @@ import jakarta.security.enterprise.authentication.mechanism.http.LoginToContinue
  *
  * @author avbravo
  */
-@FormAuthenticationMechanismDefinition(
+
+@CustomFormAuthenticationMechanismDefinition(
         loginToContinue = @LoginToContinue(
-                loginPage = "/faces/login.xhtml",
+                loginPage = "login.xhtml",
                 useForwardToLogin = false
             )
 )
-//@CustomFormAuthenticationMechanismDefinition(
-//        loginToContinue = @LoginToContinue(
-//                loginPage = "/faces/login.xhtml",
-//                useForwardToLogin = false
-//            )
-//)
 @FacesConfig
 @ApplicationScoped
 public class ApplicationConfig {

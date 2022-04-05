@@ -119,4 +119,22 @@
     </mime-mapping>
 
 
+<!--    <error-page>
+
+        <exception-type>javax.faces.application.ViewExpiredException</exception-type>
+
+        <location>/login.xhtml</location>
+        <location>/faces/expired.xhtml</location>
+
+    </error-page>-->
+    <listener>
+
+        <listener-class>
+
+            com.avbravo.templatefaces.security.SecuritySessionListener
+
+        </listener-class>
+
+    </listener>
+
 </web-app>
