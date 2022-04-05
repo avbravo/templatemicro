@@ -18,7 +18,7 @@
 
     <h:body class="sb-nav-fixed" id="bodytemplate" >
         <f:view contentType="text/html"> 
-            <h:form id="form" prependId="false">
+            <h:form id="formLogin" prependId="false">
 <p:growl id="growl"/>
                 <div id="layoutAuthentication">
                     <div id="layoutAuthentication_content">
@@ -35,14 +35,13 @@
                                             <div class="card-body">
                                              
                                                     <div>
-                                                        <p:outputLabel  id="inputEmail" value="#{loginController.username}" />
+                                                        <p:outputLabel  id="inputEmail" value="name@example.com" />
 
                                                     </div>
                                                     <div class="form-floating mb-3">
-                                                        <p:password class="form-control"  value="#{loginController.password}" id="inputPassword"  placeholder="Password"
+                                                        <p:password  class="form-control" id="inputPassword"  placeholder="Password"
                                                                
                                                                />
-                                                        
                                                         <label for="inputPassword">Password</label>
                                                     </div>
                                                     <div class="ui-fluid p-formgrid p-grid">
@@ -58,20 +57,17 @@
                                                         </div>
                                                         </div>
 
-                                                        <div class="form-check mb-3">
-                                                          <p:selectBooleanCheckbox  class="form-check-input" value="#{loginController.remember}"  id="inputRememberPassword" />
-                                                            
+<!--                                                        <div class="form-check mb-3">
+                                                            <input class="form-check-input" id="inputRememberPassword" type="checkbox" value="" />
                                                             <label class="form-check-label" for="inputRememberPassword">Remember Password</label>
-                                                        </div>
+                                                        </div>-->
                                                         <div class="d-flex align-items-center justify-content-between mt-4 mb-0">
                                                             <!--<a class="small" href="password.html">Forgot Password?</a>-->
                                                             <p:commandButton value ="Olvido passwowrd?"  styleClass="ui-button-flat" action="password"/>
 
-                                                            <p:commandButton value ="Ingresar" 
-                                                                             styleClass="rounded-button"
-                                                                             update=":form:growl"
+                                                            <p:commandButton value ="Ingresar" class="btn btn-primary" 
                                                                              action="#{loginController.login()}"/>
-                                                         
+                                                          //  <p:commandButton value ="Ingresar" class="btn btn-primary" action="index"/>
 
                                                         </div>
                                         

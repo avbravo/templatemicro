@@ -33,10 +33,10 @@
        <i class="pi pi-user" style="font-size: 2rem"></i>
            <p:menuButton id="menuButtonTop2" buttonStyleClass="ui-button-outlined"   buttonStyle="box-shadow: 0 0 10px">
             
-            <p:menuitem value="Activity Log" action="index" ajax="false" update="messages" icon="pi pi-save"/>
-            <p:menuitem value="Setting" action="index" ajax="false" update="messages" icon="pi pi-user"/>
+            <p:menuitem value="Activity Log" action="index"  icon="pi pi-save"/>
+            <p:menuitem value="Setting" action="index"   icon="pi pi-user"/>
             <p:divider/>
-           <p:menuitem value="Logout" action="index" ajax="false" update="messages" icon="pi pi-power-off"/>
+           <p:menuitem value="Logout" action="#{loginController.logout()}"  icon="pi pi-power-off"/>
 
         </p:menuButton>
         

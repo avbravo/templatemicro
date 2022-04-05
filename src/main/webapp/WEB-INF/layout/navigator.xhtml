@@ -8,7 +8,9 @@
                 xmlns:jsf="http://xmlns.jcp.org/jsf"
                 xmlns:extension="http://xmlns.jcp.org/jsf/composite/extension">
 
-
+   
+        
+  
 
 
     <div id="layoutSidenav_nav">
@@ -16,25 +18,44 @@
             <div class="sb-sidenav-menu">
                 <div class="nav">
                     <div class="sb-sidenav-menu-heading">Core</div>
-               
+
                     <p:commandLink class="nav-link"  value="Dashboard"  
                                    action="#{navigatorController.go('index.xhtml')}">
                         <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                     </p:commandLink>
-                
-                  
+
+
                     <p:commandLink class="nav-link"  value="Forms"  
                                    action="#{navigatorController.go('form.xhtml')}">
                         <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                     </p:commandLink>
-                
 
-                      <p:commandLink class="nav-link"  value="Newjsf"  
+
+                    <p:commandLink class="nav-link"  value="Newjsf"  
                                    action="#{navigatorController.go('newjsf.xhtml')}">
                         <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                     </p:commandLink>
-                
-                
+                    <p:commandLink class="nav-link"  value="pages"  
+                                   action="#{navigatorController.go('/pages/pages.xhtml')}">
+                        <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                    </p:commandLink>
+
+                    <p:commandLink class="nav-link"  value="protected"  
+                                   action="#{navigatorController.go('/protected/protected.xhtml')}">
+                        <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                    </p:commandLink>
+<div class="sb-sidenav-menu-heading">Action</div>
+
+ <p:commandLink class="nav-link"  value="pages"  
+                                   action="/pages/pages.xhtml">
+                        <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                    </p:commandLink>
+
+                    <p:commandLink class="nav-link"  value="protected"  
+                                   action="/protected/protected.xhtml">
+                        <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                    </p:commandLink>
+
                     <div class="sb-sidenav-menu-heading">Prime</div>
 
                     <div class="sb-sidenav-menu-heading">Interface</div>
@@ -92,8 +113,8 @@
                 </div>
             </div>
             <div class="sb-sidenav-footer">
-                <div class="small">Logged in as:</div>
-                Start Bootstrap
+                <div class="small">User:</div>
+                #{loginControler.getCurrentUser()} - #{loginController.username}
             </div>
         </nav>
     </div>

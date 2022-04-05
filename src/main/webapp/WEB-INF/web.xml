@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns="https://jakarta.ee/xml/ns/jakartaee"
-   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-   xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_5_0.xsd"
-   version="5.0">
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_5_0.xsd"
+         version="5.0">
     <servlet>
         <servlet-name>Faces Servlet</servlet-name>
         <servlet-class>jakarta.faces.webapp.FacesServlet</servlet-class>
@@ -13,18 +13,26 @@
         <servlet-name>Faces Servlet</servlet-name>
         <url-pattern>*.xhtml</url-pattern>
     </servlet-mapping>
+    <!--
+    Session
+    -->
+    <session-config>
+        <session-timeout>5</session-timeout>
+        <tracking-mode>COOKIE</tracking-mode>
+    </session-config>
 
-<!--  <welcome-file-list>
-        <welcome-file>index.xhtml</welcome-file>
-    </welcome-file-list>-->
-  <welcome-file-list>
+
+    <!-- 
+    Welcome
+    -->
+    <welcome-file-list>
         <welcome-file>login.xhtml</welcome-file>
     </welcome-file-list>
-<!--      <welcome-file-list>
+    <!--      <welcome-file-list>
         <welcome-file>faces/index.xhtml</welcome-file>
     </welcome-file-list>-->
   
-<!--       <context-param>
+    <!--       <context-param>
         <param-name>jakarta.faces.FACELETS_VIEW_MAPPINGS</param-name>
         <param-value>*.xhtml;*.view.xml;*.jspx</param-value>
     </context-param>
@@ -33,49 +41,82 @@
         <param-value>.xhtml .view.xml .jsp .jspx</param-value>
     </context-param>-->
     
-    
+    <security-constraint>
+        <web-resource-collection>
+            <web-resource-name>Admin pages</web-resource-name>
+            <url-pattern>/protected/*</url-pattern>
+            <url-pattern>/pages/*</url-pattern>
+        </web-resource-collection>
+        <auth-constraint>
+            <role-name>ADMIN</role-name>
+        </auth-constraint>
+    </security-constraint>
+
+    <security-constraint>
+        <web-resource-collection>
+            <web-resource-name>User pages</web-resource-name>
+            <url-pattern>/pages/*</url-pattern>
+        </web-resource-collection>
+        <auth-constraint>
+            <role-name>USER</role-name>
+        </auth-constraint>
+    </security-constraint>
+
+    <security-constraint>
+        <web-resource-collection>
+            <web-resource-name>Public pages</web-resource-name>
+            <url-pattern>/login.xhtml</url-pattern>
+        </web-resource-collection>
+    </security-constraint>
+
+    <security-role>
+        <role-name>USER</role-name>
+    </security-role>
+    <security-role>
+        <role-name>ADMIN</role-name>
+    </security-role>
     
     <!--
     captcha
     -->
     <context-param>
-    <param-name>primefaces.PRIVATE_CAPTCHA_KEY</param-name>
-    <param-value>6LfOlzcfAAAAABeEMUNT0ggwzYx5nP-pCw8ZpCR6</param-value>
-</context-param>
-<context-param>
-    <param-name>primefaces.PUBLIC_CAPTCHA_KEY</param-name>
-    <param-value>6LfOlzcfAAAAAKfQn12nYAU7KifVDPAOB_OWkGC6</param-value>
-</context-param>
+        <param-name>primefaces.PRIVATE_CAPTCHA_KEY</param-name>
+        <param-value>6LfOlzcfAAAAABeEMUNT0ggwzYx5nP-pCw8ZpCR6</param-value>
+    </context-param>
+    <context-param>
+        <param-name>primefaces.PUBLIC_CAPTCHA_KEY</param-name>
+        <param-value>6LfOlzcfAAAAAKfQn12nYAU7KifVDPAOB_OWkGC6</param-value>
+    </context-param>
     
     <!-- web fonts -->
-<mime-mapping>
-    <extension>eot</extension>
-    <mime-type>application/vnd.ms-fontobject</mime-type>
-</mime-mapping>
-<mime-mapping>
-    <extension>otf</extension>
-    <mime-type>font/opentype</mime-type>
-</mime-mapping>
-<mime-mapping>
-    <extension>ttf</extension>
-    <mime-type>application/x-font-ttf</mime-type>
-</mime-mapping>
-<mime-mapping>
-    <extension>woff</extension>
-    <mime-type>application/x-font-woff</mime-type>
-</mime-mapping>
-<mime-mapping>
-    <extension>woff2</extension>
-    <mime-type>application/x-font-woff2</mime-type>
-</mime-mapping>
-<mime-mapping>
-    <extension>svg</extension>
-    <mime-type>image/svg+xml</mime-type>
-</mime-mapping>
-<mime-mapping>
-    <extension>ico</extension>
-    <mime-type>image/x-icon</mime-type>
-</mime-mapping>
+    <mime-mapping>
+        <extension>eot</extension>
+        <mime-type>application/vnd.ms-fontobject</mime-type>
+    </mime-mapping>
+    <mime-mapping>
+        <extension>otf</extension>
+        <mime-type>font/opentype</mime-type>
+    </mime-mapping>
+    <mime-mapping>
+        <extension>ttf</extension>
+        <mime-type>application/x-font-ttf</mime-type>
+    </mime-mapping>
+    <mime-mapping>
+        <extension>woff</extension>
+        <mime-type>application/x-font-woff</mime-type>
+    </mime-mapping>
+    <mime-mapping>
+        <extension>woff2</extension>
+        <mime-type>application/x-font-woff2</mime-type>
+    </mime-mapping>
+    <mime-mapping>
+        <extension>svg</extension>
+        <mime-type>image/svg+xml</mime-type>
+    </mime-mapping>
+    <mime-mapping>
+        <extension>ico</extension>
+        <mime-type>image/x-icon</mime-type>
+    </mime-mapping>
 
 
 </web-app>
