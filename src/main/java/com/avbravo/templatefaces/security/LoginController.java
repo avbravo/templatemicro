@@ -143,9 +143,10 @@ public void logout() {
           if(has(Faces.getRequestCookie("admin-email"))) {
             Faces.removeResponseCookie("admin-email",null);
             Faces.removeResponseCookie("admin-pass",null);
-              Faces.invalidateSession();
+         
     
         }
+               Faces.invalidateSession();
           Faces.redirect("login.xhtml"); // Can by the way also be done by return "login?faces-redirect=true" if in action method.
     } catch (Exception e) {
        Messages.addError(null, JsfUtil.nameOfMethod() + " " +e.getLocalizedMessage());
