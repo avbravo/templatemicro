@@ -17,7 +17,7 @@
     Session
     -->
     <session-config>
-        <session-timeout>5</session-timeout>
+        <session-timeout>3</session-timeout>
         <tracking-mode>COOKIE</tracking-mode>
     </session-config>
 
@@ -127,11 +127,11 @@
         <location>/faces/expired.xhtml</location>
 
     </error-page>-->
-    <listener>
+<!--    <listener>
         <listener-class>
             com.avbravo.templatefaces.security.SecuritySessionListener
         </listener-class>
-    </listener>
+    </listener>-->
     
 <!--
        WebSocket
@@ -165,4 +165,31 @@ Indica a JSF que los valores vavios sean tratados como null para usar beanvalida
         </param-name>  
         <param-value>true</param-value>  
     </context-param>  
+    
+    <!--
+        -->
+        <context-param>
+        <param-name>javax.faces.FACELETS_REFRESH_PERIOD</param-name>
+        <param-value>0</param-value>
+    </context-param>
+
+    <context-param>
+        <param-name>javax.faces.PROJECT_STAGE</param-name>
+        <param-value>Development</param-value>
+    </context-param>
+    
+    <context-param>
+        <param-name>javax.faces.validator.ENABLE_VALIDATE_WHOLE_BEAN</param-name>
+        <param-value>true</param-value>
+    </context-param>
+    
+    <context-param>
+        <param-name>javax.faces.ENABLE_CDI_RESOLVER_CHAIN</param-name>
+        <param-value>true</param-value>
+    </context-param>
+    
+    <context-param>
+        <param-name>javax.faces.ENABLE_WEBSOCKET_ENDPOINT</param-name>
+        <param-value>true</param-value>
+    </context-param> 
 </web-app>
